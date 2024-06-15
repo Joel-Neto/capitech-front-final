@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.test {
+  background: #1d1c1d;
+}
+
+@layer components {
+  .menuLinks {
+    @apply text-white transition-colors hover:text-capi_yellow 
+  }
+
+  .capiButtons {
+    @apply font-headline font-semibold px-10 py-2 rounded-xl transition
+  }
+
+  .button {
+    @apply cursor-pointer px-4 py-2 bg-white font-semibold font-headline text-sm rounded-md transition
+  }
+
+  .tr {
+    @apply flex flex-col mb-1 sm:table-row
+  }
+}
