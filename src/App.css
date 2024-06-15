@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .test {
-  background: #1d1c1d;
+  background: #4b5563;
 }
 
 @layer components {

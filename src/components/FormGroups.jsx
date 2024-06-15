@@ -5,7 +5,7 @@ export const FormGroups = ({ value, setValue, label, idInput, inputType }) => {
         {label}
       </label>
       <input
-        className="w-full border-none bg-capi_gray_login shadow-xl py-2 px-3 rounded-lg capi_vsm:flex-1"
+        className="w-full border-none bg-capi_gray_login font-semibold shadow-xl py-2 px-3 rounded-lg capi_vsm:flex-1"
         type={inputType}
         id={idInput}
         value={value}

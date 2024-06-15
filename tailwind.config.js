@@ -19,6 +19,7 @@ export default {
         capi_blue_home: "#5DA6DB",
         capi_blue_home_darker: "#5190bd",
         capi_gray_home: "#e5e7eb",
+        capi_gray_home_darker: "#4b5563",
         capi_gray_login: "#838183",
         capi_gray_login_darker: "#1d1c1d",
         capi_gray_contact: "#3E3E3E",

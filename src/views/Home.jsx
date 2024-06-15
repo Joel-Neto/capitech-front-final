@@ -1,20 +1,20 @@
-import { HomeFrames } from "../components/HomeFrames";
+import { HomeFrames } from "../components/home/HomeFrames";
+import { HomeSectionTrails } from "../components/home/HomeSectionTrails";
+import { HomeContents } from "../components/home/HomeContents";
 
 import pathIcon from "../assets/img/home/trilha.png";
 import chatVideoIcon from "../assets/img/home/chat-de-video.png";
 import academicIcon from "../assets/img/home/academico.png";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { HomeContents } from "../components/HomeContents";
 
 import imgContent01 from "../assets/img/home/home_img1.png";
 import imgContent02 from "../assets/img/home/home_img2.png";
 import imgContent04 from "../assets/img/home/home_img4.png";
 import imgContent05 from "../assets/img/home/home_img5.png";
 import imgContent06 from "../assets/img/home/home_img6.png";
-import { HomeSectionTrails } from "../components/HomeSectionTrails";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
-
   const homeFrames = [
     {
       img: pathIcon,
@@ -78,10 +78,8 @@ export const Home = () => {
     },
   ];
 
-  
-
   return (
-    <main className="py-8">
+    <main className="pt-8">
       <div className="px-4">
         <div className="container mx-auto max-w-5xl">
           <section className="flex flex-col gap-7 md:flex-row mb-10">
@@ -158,16 +156,21 @@ export const Home = () => {
       </div>
 
       <div className="mt-10 mb-8 flex justify-center items-center">
-        <a
-          href=""
+        <Link
+          to="/vestibular"
           className="flex gap-5 justify-center items-center font-headline font-semibold px-10 py-2 rounded-xl transition text-white bg-capi_red hover:text-gray-300"
         >
           <span>Conheça a FATEC</span>
           <FaArrowRightLong />
-        </a>
+        </Link>
       </div>
 
-      <HomeSectionTrails />
+      <section className="bg-capi_gray_home_darker px-4 py-10">
+        <h2 className="font-headline text-white text-2xl font-semibold text-center mb-8">
+          Escolha uma tecnologia para começar sua jornada!
+        </h2>
+        <HomeSectionTrails />
+      </section>
     </main>
   );
 };

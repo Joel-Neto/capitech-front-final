@@ -6,6 +6,7 @@ import { Register } from "./views/Register";
 import { Contact } from "./views/Contact";
 import { Fatec } from "./views/Fatec";
 import { About } from "./views/About";
+import { Trail } from "./views/Trail";
 
 const routes = createBrowserRouter([
   {
@@ -35,7 +36,12 @@ const routes = createBrowserRouter([
       {
         path: "sobre",
         element: <About />
-      }
+      },
+      {
+        path: "trilha/:id",
+        element: <Trail />
+      },
+
     ],
   },
 ]);

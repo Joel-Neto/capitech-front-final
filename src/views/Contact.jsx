@@ -1,7 +1,7 @@
 import { useState } from "react";
 import contactIcon from "../assets/img/contato_icon.png";
-import { ContactFormGroups } from "../components/ContactFormGroups";
-import { ContactTextArea } from "../components/ContactTextArea";
+import { ContactFormGroups } from "../components/contact/ContactFormGroups";
+import { ContactTextArea } from "../components/contact/ContactTextArea";
 
 export const Contact = () => {
   const [name, setName] = useState("");

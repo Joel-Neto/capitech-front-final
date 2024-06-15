@@ -1,3 +1,5 @@
+import propTypes from "prop-types"
+
 export const AboutContents = ({img01, img02, text}) => {
   return (
     <div className="w-full bg-capi_seaGreen_about py-6 px-8 shadow-gray-300 shadow-lg rounded-xl mb-5 md:w-4/6">
@@ -10,4 +12,10 @@ export const AboutContents = ({img01, img02, text}) => {
       </p>
     </div>
   );
+};
+
+AboutContents.propTypes = {
+  img01: propTypes.string.isRequired,
+  img02: propTypes.string.isRequired,
+  text: propTypes.string.isRequired
 };

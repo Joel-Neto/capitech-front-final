@@ -30,10 +30,6 @@ export const Fatec = () => {
             />
           </div>
           <div className="basis-2/5">
-            {/* <div className="flex gap-10">
-              <img className="w-1/4" src={fatecLogo} alt="" />
-              <img className="" src={cpsLogo} alt="" />
-            </div> */}
             <div className="flex flex-col items-center justify-center h-full">
               <h5 className="text-center text-lg font-texts font-bold">
                 Votorantim
@@ -52,10 +48,11 @@ export const Fatec = () => {
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-evenly items-center gap-8 md:flex-row">
-        <a href="" className="capiButtons text-black bg-capi_red shadow-xl hover:text-gray-900">
+            
+        <a href="https://www.vestibularfatec.com.br/home/" target="_blank" className="capiButtons text-black bg-capi_red shadow-xl hover:text-gray-900">
           <span>Inscreva-se no Vestibular FATEC!</span>
         </a>
-        <a href="" className="capiButtons text-black bg-capi_blue shadow-xl hover:text-gray-900">
+        <a href="https://www.vestibularfatec.com.br/provas-gabaritos/" target="_blank" className="capiButtons text-black bg-capi_blue shadow-xl hover:text-gray-900">
           <span>Acompanhe as provas e gabaritos!</span>
         </a>
       </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import capitechLogo from "../assets/img/capitech_logo.png";
+import capitechLogo from "../../assets/img/capitech_logo.png";
 
 export const Footer = () => {
   const links = [

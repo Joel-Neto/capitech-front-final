@@ -1,4 +1,6 @@
-export const ContactTextArea = ({
+import propTypes from "prop-types";
+
+export const ContactFormGroups = ({
   value,
   setValue,
   label,
@@ -13,14 +15,22 @@ export const ContactTextArea = ({
       >
         {label}
       </label>
-      <textarea
+      <input
         className="w-full border border-black bg-gray-100 shadow-xl py-3 px-3 rounded-2xl capi_vsm:flex-1"
+        type={inputType}
         id={idInput}
         value={value}
         onChange={(ev) => setValue(ev.target.value)}
-        rows={6}
         required
-      ></textarea>
+      />
     </div>
   );
+};
+
+ContactFormGroups.propTypes = {
+  value: propTypes.any.isRequired,
+  setValue: propTypes.func.isRequired,
+  label: propTypes.string.isRequired,
+  idInput: propTypes.string.isRequired,
+  inputType: propTypes.string.isRequired,
 };

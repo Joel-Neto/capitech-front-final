@@ -1,8 +1,8 @@
 import { useState } from "react";
-
-import capitechLogo from "../assets/img/capitech_logo.png";
-import { IoMenu } from "react-icons/io5";
 import { HeaderModal } from "./HeaderModal";
+
+import capitechLogo from "../../assets/img/capitech_logo.png";
+import { IoMenu } from "react-icons/io5";
 
 export const Header = () => {
   const [modalOpen, setModalOpen] = useState(false)

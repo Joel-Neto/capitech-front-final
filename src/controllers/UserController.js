@@ -1,5 +1,5 @@
 export default class UserController {
-  baseUrl = "https://capitech-back.vercel.app/";
+  baseUrl = "https://capitech-back.vercel.app";
 
   async login(email, password) {
     try {

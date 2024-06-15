@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AboutContents } from "../components/AboutContents";
+import { AboutContents } from "../components/about/AboutContents";
 
 import aboutIcon from "../assets/img/about/img_about01.png";
 import aboutImg02 from "../assets/img/about/img_about02.png";
