@@ -1,10 +1,51 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import UserController from "../controllers/UserController";
 import { FormGroups } from "../components/FormGroups";
+import { UserLogin } from "../models/UserModel";
+
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const sendForm = async (ev) => {
+    ev.preventDefault();
+    const userController = new UserController();
+
+    try {
+      const user = new UserLogin(email, password);
+      setLoading(true);
+      const result = await userController.login(user);
+
+      if (result.success) {
+        alert(result.message);
+        saveUserDataOnStorage(result.data);
+        resetFields();
+        return navigate("/admin")
+      } else {
+        alert(`Erro: ${result.message}`);
+      }
+    } catch (error) {
+      alert(`Erro: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const resetFields = () => {
+    setEmail("");
+    setPassword("");
+  };
+
+  const saveUserDataOnStorage = (data) => {
+    sessionStorage.setItem("token", data);
+  }
 
   return (
     <main className="py-8 px-4">
@@ -21,7 +62,10 @@ export const Login = () => {
               sistema!
             </p>
 
-            <form className="my-14 flex flex-col items-center gap-8">
+            <form
+              className="my-14 flex flex-col items-center gap-8"
+              onSubmit={sendForm}
+            >
               <FormGroups
                 value={email}
                 setValue={setEmail}
@@ -36,40 +80,16 @@ export const Login = () => {
                 idInput={"password"}
                 inputType={"password"}
               />
-              {/* <div className="flex flex-col items-center gap-2 w-full capi_vsm:flex-row">
-                <label className="font-headline font-semibold" htmlFor="email">
-                  E-mail:
-                </label>
-                <input
-                  className="w-full border-none bg-capi_gray_login shadow-xl py-2 px-3 rounded-lg capi_vsm:flex-1"
-                  type="text"
-                  id="email"
-                  value={email}
-                  onChange={(ev) => setEmail(ev.target.value)}
-                />
-              </div> */}
-              {/* <div className="flex flex-col items-center gap-2 w-full capi_vsm:flex-row">
-                <label
-                  className="font-headline font-semibold"
-                  htmlFor="password"
-                >
-                  Senha:
-                </label>
-                <input
-                  className="w-full border-none bg-capi_gray_login shadow-xl py-2 px-3 rounded-lg capi_vsm:flex-1"
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(ev) => setPassword(ev.target.value)}
-                />
-              </div> */}
 
               <div className="flex flex-col gap-5">
-                <button className="capiButtons text-black bg-capi_blue hover:bg-blue-400 shadow-xl">
+                <button className="capiButtons flex items-center justify-center gap-2 text-black bg-capi_blue hover:bg-blue-400 shadow-xl">
+                  {loading && (
+                    <AiOutlineLoading3Quarters className="animate-spin" />
+                  )}
                   Login
                 </button>
                 <Link
-                  to=""
+                  to="/cadastro"
                   className="capiButtons text-black bg-capi_green hover:bg-green-400 shadow-xl"
                 >
                   Registre-se

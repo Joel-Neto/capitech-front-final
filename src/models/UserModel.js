@@ -32,3 +32,28 @@ export class UserRegister {
     return emailRegex.test(email);
   }
 }
+
+export class UserLogin {
+  constructor(email, password) {
+    // Validação dos campos
+    if (typeof email !== "string" || !this.#isValidEmail(email)) {
+      throw new Error("O e-mail deve ser uma string válida. \nExemplo: teste@teste.com");
+    }
+    if (typeof password !== "string" || password.trim() === "") {
+      throw new Error("A senha deve ser uma string não vazia.");
+    }
+    if ( password.length < 6) {
+      throw new Error("A senha deve ter no mínimo 6 carcteres.");
+    }
+
+    // Atribuição dos valores aos atributos
+    this.email = email;
+    this.password = password;
+  }
+
+  // Função para validar o e-mail
+  #isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+}

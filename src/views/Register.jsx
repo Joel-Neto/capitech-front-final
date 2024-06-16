@@ -93,7 +93,7 @@ export const Register = () => {
               />
 
               <div className="flex flex-col gap-5">
-                <button className="capiButtons flex items-center gap-2 text-black bg-capi_blue hover:bg-blue-400 shadow-xl">
+                <button className="capiButtons flex items-center justify-center gap-2 text-black bg-capi_blue hover:bg-blue-400 shadow-xl">
                   {loading && (
                     <AiOutlineLoading3Quarters className="animate-spin" />
                   )}

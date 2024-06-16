@@ -7,6 +7,10 @@ import { Contact } from "./views/Contact";
 import { Fatec } from "./views/Fatec";
 import { About } from "./views/About";
 import { Trail } from "./views/Trail";
+import { AdminLayout } from "./views/admin/AdminLayout";
+import { AdminTrails } from "./views/admin/AdminTrails";
+import { AdminUsers } from "./views/admin/AdminUsers";
+import Private from "./components/Private";
 
 const routes = createBrowserRouter([
   {
@@ -19,29 +23,46 @@ const routes = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "cadastro",
-        element: <Register />
+        element: <Register />,
       },
       {
         path: "contato",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "vestibular",
-        element: <Fatec />
+        element: <Fatec />,
       },
       {
         path: "sobre",
-        element: <About />
+        element: <About />,
       },
       {
         path: "trilha/:id",
-        element: <Trail />
+        element: <Trail />,
       },
-
+    ],
+  },
+  {
+    path: "/admin",
+    element: (
+      <Private>
+        <AdminLayout />
+      </Private>
+    ),
+    children: [
+      {
+        index: true,
+        element: <AdminTrails />,
+      },
+      {
+        path: "usuarios",
+        element: <AdminUsers />,
+      },
     ],
   },
 ]);
