@@ -5,6 +5,7 @@ export const ContactTextArea = ({
   setValue,
   label,
   idInput,
+  rows
 }) => {
   return (
     <div className="w-full flex flex-col gap-2 sm:w-2/3">
@@ -19,7 +20,7 @@ export const ContactTextArea = ({
         id={idInput}
         value={value}
         onChange={(ev) => setValue(ev.target.value)}
-        rows={6}
+        rows={rows ? rows : 6}
         required
       ></textarea>
     </div>
@@ -31,4 +32,5 @@ ContactTextArea.propTypes = {
   setValue: propTypes.func.isRequired,
   label: propTypes.string.isRequired,
   idInput: propTypes.string.isRequired,
+  rows: propTypes.number
 }

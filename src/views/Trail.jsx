@@ -98,9 +98,9 @@ export const Trail = () => {
           {trail.subtitle}
         </h2>
 
-        <p className="text-lg mb-5">
+        <div className="w-full">
           {trail.description}
-        </p>
+        </div>
 
         <h3 className="text-center text-xl font-semibold mb-5">
           Para se aprofundar no assundo, temos alguns vídeos como recomendação:

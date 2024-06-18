@@ -1,6 +1,18 @@
 export default class UserController {
   #baseUrl = "https://capitech-back.vercel.app";
 
+  async getUsers() {
+    try {
+      const data = await fetch(`${this.#baseUrl}/trilhas`).then((res) =>
+        res.json()
+      );
+
+      return data;
+    } catch (error) {
+      alert(`Erro: ${error.message}`);
+    }
+  }
+
   async login(user) {
     try {
       const data = await fetch(`${this.#baseUrl}/login`, {

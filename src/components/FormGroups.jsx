@@ -1,3 +1,5 @@
+import propTypes from "prop-types";
+
 export const FormGroups = ({ value, setValue, label, idInput, inputType }) => {
   return (
     <div className="flex flex-col items-center gap-2 w-full capi_vsm:flex-row">
@@ -14,4 +16,12 @@ export const FormGroups = ({ value, setValue, label, idInput, inputType }) => {
       />
     </div>
   );
+};
+
+FormGroups.propTypes = {
+  value: propTypes.any.isRequired,
+  setValue: propTypes.func.isRequired,
+  label: propTypes.string.isRequired,
+  idInput: propTypes.string.isRequired,
+  inputType: propTypes.string.isRequired
 };

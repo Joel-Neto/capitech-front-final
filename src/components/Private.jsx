@@ -27,32 +27,34 @@ export default function Private({ children }) {
 
         if (result.success) {
           setAuthenticated(true);
-        } 
-        else {
+        } else {
           alert(`Erro: ${result.message}`);
+          sessionStorage.removeIte("token");
           return navigate("/login");
         }
       } catch (error) {
         alert(`Erro: ${error.message}`);
+        sessionStorage.removeIte("token");
         return navigate("/login");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchData()
+    fetchData();
   }, [navigate]);
 
   if (loading) {
-    return <div>Carregando dados...</div>;
+    return (
+      <main className="w-full h-screen flex justify-center items-center text-center">
+        <h1 className="text-2xl font-headline font-semibold">Carregando dados...</h1>
+      </main>
+    );
   }
 
   if (!authenticated) {
     return navigate("/login");
   }
-  // if (!authenticated) {
-  //   return <Navigate to="/login" />;
-  // }
 
   return <>{children}</>;
 }

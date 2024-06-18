@@ -11,6 +11,9 @@ import { AdminLayout } from "./views/admin/AdminLayout";
 import { AdminTrails } from "./views/admin/AdminTrails";
 import { AdminUsers } from "./views/admin/AdminUsers";
 import Private from "./components/Private";
+import { AdminDevelopment } from "./views/admin/AdminDevelopment";
+import { AdminCreateTrail } from "./views/admin/AdminCreateTrail";
+import { Test } from "./views/Test";
 
 const routes = createBrowserRouter([
   {
@@ -45,6 +48,10 @@ const routes = createBrowserRouter([
         path: "trilha/:id",
         element: <Trail />,
       },
+      {
+        path: "teste",
+        element: <Test />,
+      },
     ],
   },
   {
@@ -60,8 +67,16 @@ const routes = createBrowserRouter([
         element: <AdminTrails />,
       },
       {
+        path: "trilhas/novatrilha",
+        element: <AdminCreateTrail />,
+      },
+      {
         path: "usuarios",
         element: <AdminUsers />,
+      },
+      {
+        path: "desenvolvimento",
+        element: <AdminDevelopment />,
       },
     ],
   },

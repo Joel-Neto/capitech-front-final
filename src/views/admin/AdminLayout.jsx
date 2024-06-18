@@ -1,9 +1,12 @@
 import { Outlet } from "react-router-dom"
+import { AdminHeader } from "../../components/admin/header/AdminHeader"
+import { AdminBreadcrumb } from "../../components/admin/breadcrumb/AdminBreadcrumb"
 
 export const AdminLayout = () => {
   return (
     <div>
-      <h1>AdminLayout</h1>
+      <AdminHeader />
+      <AdminBreadcrumb />
       <Outlet />
     </div>
   )

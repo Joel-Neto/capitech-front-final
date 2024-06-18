@@ -25,6 +25,7 @@ export default {
         capi_gray_contact: "#3E3E3E",
         capi_seaGreen_about: "#04D9B3",
         capi_seaGreen_about_light: "#0EFFE2",
+        capi_gray_development: "#2d2d2d"
 
       }
     },
