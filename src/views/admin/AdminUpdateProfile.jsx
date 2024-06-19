@@ -73,7 +73,7 @@ export const AdminUpdateProfile = () => {
           Atualizar Usuário:
         </h2>
         <p className="text-center font-headline font-semibold text-lg">
-          Todos os campos são obrigatórios!
+          Nome e E-mail são obrigatórios!
         </p>
         <form
           onSubmit={sendForm}

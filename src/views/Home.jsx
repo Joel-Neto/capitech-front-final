@@ -9,6 +9,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 import imgContent01 from "../assets/img/home/home_img1.png";
 import imgContent02 from "../assets/img/home/home_img2.png";
+import imgContent03 from "../assets/img/home/home_img3.png";
 import imgContent04 from "../assets/img/home/home_img4.png";
 import imgContent05 from "../assets/img/home/home_img5.png";
 import imgContent06 from "../assets/img/home/home_img6.png";
@@ -117,7 +118,7 @@ export const Home = () => {
         <div className="container mx-auto max-w-5xl">
           <section className="flex flex-col gap-10 ">
             <HomeContents
-              img={imgContent01}
+              img={imgContent03}
               title={homeContents[2].title}
               content={homeContents[2].content}
               flexRowReverse={false}
