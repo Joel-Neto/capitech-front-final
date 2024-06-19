@@ -1,4 +1,4 @@
-# Projeto CapiTech
+# Projeto CapiTech 💻📲
 Este é um projeto de site/blog de estudos que utiliza as seguintes tecnologias:
 
 - Vite: Um bundler e ferramenta de desenvolvimento rápida para projetos JavaScript.
@@ -27,7 +27,7 @@ npm install
 3 - Configuração do EmailJS:
 - Crie uma conta no EmailJS.
 - Após criar a conta, adicione um novo serviço e conecte sua conta de e-mail (por exemplo, Gmail).
-- Anote o “Service ID” e o “Template ID”.
+- Anote o “Service ID”, “Template ID” e a "Public KEY".
 - No arquivo .env na raiz do projeto, adicione as seguintes variáveis:
 ```
 VITE_SERVICE_ID=seu_service_id
