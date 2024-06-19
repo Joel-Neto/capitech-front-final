@@ -102,7 +102,7 @@ export const Trail = () => {
         </div>
 
         <h3 className="text-center text-xl font-semibold mb-7">
-          Para se aprofundar no assundo, temos alguns vídeos como recomendação:
+          Para se aprofundar no assunto, temos alguns vídeos como recomendação:
         </h3>
 
         <h3 className=" text-lg font-bold mb-5">- {trail.video_title}</h3>

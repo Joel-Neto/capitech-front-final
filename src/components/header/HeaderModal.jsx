@@ -40,7 +40,7 @@ export const HeaderModal = ({showAndCloseModal}) => {
           <IoClose size={25} className="pointer-events-none"  />
         </button>
 
-        <ul className="flex flex-col gap-2 text-lg">
+        <ul className="flex flex-col gap-2 text-md">
           {links.map((link, i) => (
             <li key={`link-${i}`}>
               <Link to={link.to} className="menuLinks">
