@@ -13,17 +13,17 @@ export const AdminBreadcrumb = () => {
       text: "Nova trilha",
     },
     {
-      link: "/admin/usuarios",
-      text: "Usuários",
-    },
-    {
       link: "/admin/desenvolvimento",
       text: "Área de desenvolvimento",
+    },
+    {
+      link: "/admin/usuario",
+      text: "Usuário",
     },
   ];
 
   return (
-    <div className="py-5 flex items-center justify-center gap-5 font-headline font-semibold text-md border-b-2">
+    <div className="py-5 flex flex-col items-center justify-center gap-5 font-headline font-semibold text-md border-b-2 sm:flex-row">
       {links.map((value, i) => (
         <Link
           key={`key-${i}`}

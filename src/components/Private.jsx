@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { useNavigate } from "react-router-dom";
 import UserController from "../controllers/UserController";
+import { userContext } from "../contexts/UserContext";
 Private.propTypes = {
   children: PropTypes.node,
 };
@@ -10,6 +11,8 @@ Private.propTypes = {
 export default function Private({ children }) {
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
+
+  const {logout} = useContext(userContext)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,12 +32,12 @@ export default function Private({ children }) {
           setAuthenticated(true);
         } else {
           alert(`Erro: ${result.message}`);
-          sessionStorage.removeIte("token");
+          logout();
           return navigate("/login");
         }
       } catch (error) {
         alert(`Erro: ${error.message}`);
-        sessionStorage.removeIte("token");
+        logout();
         return navigate("/login");
       } finally {
         setLoading(false);
@@ -42,7 +45,7 @@ export default function Private({ children }) {
     };
 
     fetchData();
-  }, [navigate]);
+  }, [navigate, logout]);
 
   if (loading) {
     return (

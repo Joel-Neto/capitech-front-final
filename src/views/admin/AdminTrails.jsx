@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FaPlus } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TrailController from "../../controllers/TrailController";
 import { AdminTable } from "../../components/admin/adminTable/AdminTable";
+import { userContext } from "../../contexts/UserContext";
 
 export const AdminTrails = () => {
   const [tableData, setTableData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const {logout} = useContext(userContext)
+  const navigate = useNavigate();
 
   const tableHeader = ["id", "Nome", "Editar", "Excluir"];
   const token = sessionStorage.getItem("token");
@@ -47,10 +50,20 @@ export const AdminTrails = () => {
           alert(`Erro: ${result.message}`);
         }
       } catch (error) {
+        if (error.message === "401") {
+          alert("Token Inválido. Faça login novamente!")
+          logout();
+          return navigate("/login");
+        }
         alert(`Erro: ${error.message}`);
       }
     }
   };
+
+  if (!token) {
+    alert("Faça login novamente!");
+    return navigate("/login");
+  }
 
   if (error) {
     return (
@@ -89,7 +102,7 @@ export const AdminTrails = () => {
             />
           </div>
         )}
-        {tableData.length === 0 ? (
+        {(tableData.length === 0 && !loading) ? (
           <p className="text-center text-lg font-headline font-bold">
             Não há trilhas criadas... Cadastre uma nova!
           </p>

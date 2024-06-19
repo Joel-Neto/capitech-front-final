@@ -6,6 +6,7 @@ import TrailController from "../controllers/TrailController";
 import imgTrail from "../assets/img/home/trails/img_trilhas.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import RenderHtml from "../components/RenderHtml";
 
 export const Trail = () => {
   const navigate = useNavigate();
@@ -81,9 +82,7 @@ export const Trail = () => {
   return (
     <main>
       <section className="bg-capi_blue_home_darker text-white text-center gap-8 p-8">
-        <h2 className="font-headline font-semibold text-4xl">
-        {trail.name}
-        </h2>
+        <h2 className="font-headline font-semibold text-4xl">{trail.name}</h2>
       </section>
       <section className="container mx-auto max-w-5xl p-10 px-2">
         <div className="w-full flex justify-center mb-5">
@@ -99,24 +98,20 @@ export const Trail = () => {
         </h2>
 
         <div className="w-full">
-          {trail.description}
+          <RenderHtml htmlContent={trail.description} />
         </div>
 
-        <h3 className="text-center text-xl font-semibold mb-5">
+        <h3 className="text-center text-xl font-semibold mb-7">
           Para se aprofundar no assundo, temos alguns vídeos como recomendação:
         </h3>
 
-        <h3 className=" text-lg font-bold mb-5">
-          - {trail.video_title}
-        </h3>
+        <h3 className=" text-lg font-bold mb-5">- {trail.video_title}</h3>
 
-        <p className="text-lg mb-3">
-          - {trail.video_description}
-        </p>
-
+        <p className="text-lg mb-3"><b>Descrição: </b>{trail.video_description}</p>
+        
         <a href={trail.references}>
-          <p className="underline text-blue-500 font-bold transition duration-300 hover:text-blue-800">
-            Clique aqui para acessar o curso de Python!
+          <p className="text-center underline text-blue-500 font-bold transition duration-300 hover:text-blue-800">
+            Clique aqui para o vídeo: {trail.video_title}
           </p>
         </a>
       </section>

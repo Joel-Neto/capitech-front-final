@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom"
-import { AdminHeader } from "../../components/admin/header/AdminHeader"
-import { AdminBreadcrumb } from "../../components/admin/breadcrumb/AdminBreadcrumb"
+import { Outlet } from "react-router-dom";
+import { AdminHeader } from "../../components/admin/header/AdminHeader";
+import { AdminBreadcrumb } from "../../components/admin/breadcrumb/AdminBreadcrumb";
 
 export const AdminLayout = () => {
   return (
@@ -9,5 +9,5 @@ export const AdminLayout = () => {
       <AdminBreadcrumb />
       <Outlet />
     </div>
-  )
-}
+  );
+};

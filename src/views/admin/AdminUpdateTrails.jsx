@@ -1,28 +1,50 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContactFormGroups } from "../../components/ContactFormGroups";
 import { ContactTextArea } from "../../components/ContactTextArea";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import TrailController from "../../controllers/TrailController";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { userContext } from "../../contexts/UserContext";
 
-export const AdminCreateTrail = () => {
+export const AdminUpdateTrails = () => {
+  const { id } = useParams();
+
+  const [loadingTrail, setLoadingTrail] = useState(true);
   const [loading, setLoading] = useState(false);
+
   const [name, setName] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [description, setDescription] = useState("");
   const [video_title, setVideo_title] = useState("");
   const [video_description, setVideo_description] = useState("");
   const [references, setReferences] = useState("");
+
   const {logout} = useContext(userContext)
   const navigate = useNavigate();
-
   const token = sessionStorage.getItem("token");
-  if (!token) {
-    alert("Faça login novamente!");
-    return navigate("/login");
-  }
-  
+
+  useEffect(() => {
+    const trailController = new TrailController();
+    const fetchData = async () => {
+      try {
+        const result = await trailController.getTrail(id);
+        if (result.success) {
+          setFields(result.data);
+        } else {
+          alert(result.message);
+          return navigate("/admin");
+        }
+      } catch (error) {
+        alert(`Erro: ${error.message}`);
+        return navigate("/admin");
+      } finally {
+        setLoadingTrail(false);
+      }
+    };
+
+    fetchData();
+  }, [id, navigate]);
+
   const sendForm = async (ev) => {
     ev.preventDefault();
     const trailController = new TrailController();
@@ -37,10 +59,12 @@ export const AdminCreateTrail = () => {
 
     try {
       setLoading(true);
-      const result = await trailController.createTrail(token, trail);
+      const result = await trailController.update(token, id, trail);
+
       if (result.success) {
         alert(result.message);
         resetFields();
+        return navigate("/admin");
       } else {
         alert(`Erro: ${result.message}`);
       }
@@ -56,6 +80,15 @@ export const AdminCreateTrail = () => {
     }
   };
 
+  const setFields = (data) => {
+    setName(data.name);
+    setSubtitle(data.subtitle);
+    setDescription(data.description);
+    setVideo_title(data.video_title);
+    setVideo_description(data.video_description);
+    setReferences(data.references);
+  };
+
   const resetFields = () => {
     setName("");
     setSubtitle("");
@@ -65,13 +98,36 @@ export const AdminCreateTrail = () => {
     setReferences("");
   };
 
+  if (!token) {
+    alert("Faça login novamente!");
+    return navigate("/login");
+  }
+
+  if (loadingTrail) {
+    return (
+      <section>
+        <div className="container mx-auto max-w-5xl py-10">
+          <div className="flex items-center justify-center gap-2">
+            <AiOutlineLoading3Quarters className="animate-spin" />
+            <h4 className="text-xl text-center font-texts font-semibold  text-black">
+              Carregando dados...
+            </h4>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <main>
       <section className="container mx-auto max-w-5xl p-10 px-2">
         <h2 className="text-center font-headline font-semibold text-2xl">
           Cadastrar nova trilha:
         </h2>
-        <form onSubmit={sendForm} className="mt-12 flex flex-col items-center gap-8">
+        <form
+          onSubmit={sendForm}
+          className="mt-12 flex flex-col items-center gap-8"
+        >
           <ContactFormGroups
             value={name}
             setValue={setName}

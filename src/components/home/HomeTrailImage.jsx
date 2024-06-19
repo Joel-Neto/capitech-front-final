@@ -1,8 +1,10 @@
 import propTypes from "prop-types";
 
+import capi from "../../assets/img/capitech_logo.png"
 import html from "../../assets/img/home/trails/html.png";
 import javascript from "../../assets/img/home/trails/javascript.png";
 import css from "../../assets/img/home/trails/css.png";
+import sql from "../../assets/img/home/trails/sql.png";
 
 export const HomeTrailImage = ({ trailName }) => {
   const chooseImage = (name) => {
@@ -13,9 +15,10 @@ export const HomeTrailImage = ({ trailName }) => {
         return javascript;
       case "css":
         return css;
-
+      case "sql":
+        return sql;
       default:
-        return null;
+        return capi;
     }
   };
 

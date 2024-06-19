@@ -3,6 +3,8 @@ import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 export const HeaderModal = ({showAndCloseModal}) => {
+  const token = sessionStorage.getItem("token");
+
   const links = [
     {
       text: "Home",
@@ -19,6 +21,14 @@ export const HeaderModal = ({showAndCloseModal}) => {
     {
       text: "Sobre",
       to: "/sobre",
+    },
+    {
+      text: "Login (Admin)",
+      to: `${token ? "/admin" : "/login"}`,
+    },
+    {
+      text: "Cadastro (Admin)",
+      to: "/cadastro",
     },
   ];
   return (

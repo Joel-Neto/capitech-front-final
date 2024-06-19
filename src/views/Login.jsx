@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import UserController from "../controllers/UserController";
@@ -6,11 +6,14 @@ import { FormGroups } from "../components/FormGroups";
 import { UserLogin } from "../models/UserModel";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { userContext } from "../contexts/UserContext";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const {saveUserDataOnStorage} = useContext(userContext);
 
   const navigate = useNavigate();
 
@@ -27,7 +30,7 @@ export const Login = () => {
         alert(result.message);
         saveUserDataOnStorage(result.data);
         resetFields();
-        return navigate("/admin")
+        return navigate("/admin");
       } else {
         alert(`Erro: ${result.message}`);
       }
@@ -43,9 +46,11 @@ export const Login = () => {
     setPassword("");
   };
 
-  const saveUserDataOnStorage = (data) => {
-    sessionStorage.setItem("token", data);
-  }
+  // const saveUserDataOnStorage = (data) => {
+  //   const decodedUser = jwtDecode(data);
+  //   sessionStorage.setItem("user", JSON.stringify(decodedUser));
+  //   sessionStorage.setItem("token", data);
+  // };
 
   return (
     <main className="py-8 px-4">

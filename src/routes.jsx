@@ -9,11 +9,12 @@ import { About } from "./views/About";
 import { Trail } from "./views/Trail";
 import { AdminLayout } from "./views/admin/AdminLayout";
 import { AdminTrails } from "./views/admin/AdminTrails";
-import { AdminUsers } from "./views/admin/AdminUsers";
 import Private from "./components/Private";
 import { AdminDevelopment } from "./views/admin/AdminDevelopment";
 import { AdminCreateTrail } from "./views/admin/AdminCreateTrail";
 import { Test } from "./views/Test";
+import { AdminUpdateTrails } from "./views/admin/AdminUpdateTrails";
+import { AdminUpdateProfile } from "./views/admin/AdminUpdateProfile";
 
 const routes = createBrowserRouter([
   {
@@ -71,8 +72,12 @@ const routes = createBrowserRouter([
         element: <AdminCreateTrail />,
       },
       {
-        path: "usuarios",
-        element: <AdminUsers />,
+        path: "trilhas/atualizar/:id",
+        element: <AdminUpdateTrails />,
+      },
+      {
+        path: "usuario",
+        element: <AdminUpdateProfile />,
       },
       {
         path: "desenvolvimento",

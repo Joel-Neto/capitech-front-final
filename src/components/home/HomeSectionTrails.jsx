@@ -79,8 +79,14 @@ export const HomeSectionTrails = () => {
             className="flex flex-col justify-center items-center bg-capi_gray_login p-5 rounded-2xl shadow-xl"
           >
             <HomeTrailImage trailName={trail.name} />
+            <p className="text-3xl font-headline text-white font-bold transition duration-300 mb-2 hover:text-gray-200">
+              {trail.name}
+            </p>
+
             <Link to={`trilha/${trail._id}`}>
-              <p className="text-3xl font-headline text-white font-bold transition duration-300 hover:text-gray-200">{trail.name}</p>
+              <p className="text-center text-xl font-headline text-white font-bold underline transition duration-300 hover:text-gray-200">
+                {trail.subtitle}
+              </p>
             </Link>
           </div>
         ))}
