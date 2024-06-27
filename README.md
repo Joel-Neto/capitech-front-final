@@ -1,5 +1,5 @@
 # Projeto CapiTech 💻📲
-### Documentação completa do projeto: [Clique aqui!](https://github.com/FischerJoao/readme-Capitech)
+### Documentação completa do projeto: [Clique aqui!](https://github.com/FischerJoao/readme-Capitech){:target="_blank"}
 
 Este é um projeto de site/blog de estudos que utiliza as seguintes tecnologias:
 
