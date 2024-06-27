@@ -1,4 +1,6 @@
 # Projeto CapiTech 💻📲
+### Link da documentação completa: https://github.com/FischerJoao/readme-Capitech
+
 Este é um projeto de site/blog de estudos que utiliza as seguintes tecnologias:
 
 - Vite: Um bundler e ferramenta de desenvolvimento rápida para projetos JavaScript.
